@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS librarydb;
+USE librarydb;
+
+CREATE TABLE IF NOT EXISTS books (
+  id VARCHAR(50) PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  author VARCHAR(255) NOT NULL,
+  available BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS members (
+  id VARCHAR(50) PRIMARY KEY,
+  name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS borrowings (
+  member_id VARCHAR(50),
+  book_id VARCHAR(50),
+  borrowed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (member_id, book_id),
+  FOREIGN KEY (member_id) REFERENCES members(id),
+  FOREIGN KEY (book_id) REFERENCES books(id)
+);

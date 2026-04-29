@@ -1,0 +1,22 @@
+# Java
+*.class
+*.log
+out/
+
+# Maven
+target/
+
+# IDEs
+.vscode/
+.idea/
+
+# Python
+.venv/
+__pycache__/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated files
+LibraryProject_Report.pdf
